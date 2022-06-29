@@ -22,7 +22,7 @@ int main(void) {
     // Start the display at 50
     LCD_Start();                                                        // Start LCD Module
     LCD_Position(0,5);                                                  // Position LCD to top row, after space 5
-    LCD_PrintString("Volume");											// Print Volume on the LCD
+    LCD_PrintString("Volume");						// Print Volume on the LCD
 
     LCD_Position(1,0);                                                  // Position LCD bottom row far left
     char displayString[17];                                             // Initialize displayString 17 bits
@@ -40,11 +40,11 @@ int main(void) {
    
     
 
-    for(;;) {
+	for(;;) {
   
 		//Increment when SW1 is pushed  
-		if (SW1_Read() == 1) {                                               		// Read what switch 1 is
-			if (count <100) {                                                   	// Check if count is less than 100
+		if (SW1_Read() == 1) {                                               		    // Read what switch 1 is
+			if (count <100) {                                                   	    // Check if count is less than 100
 				LCD_ClearDisplay();                                                 // Clear LCD display
 				count++;                                                            // Increment count
 				LCD_Position(0,2);                                                  // Position LCD to top row, after space 2
@@ -76,7 +76,7 @@ int main(void) {
 				LCD_PrintInt8(count);                                               // Display current count in hex                                        
 			}
 		
-			if (count == 100) {                                                 	// Checks if count is 100
+			if (count == 100) {                                                 	    // Checks if count is 100
 				LCD_ClearDisplay();                                                 // Clear Display
 				LCD_Position(0,3);                                                  // Position LCD
 				LCD_PrintString("Max Volume");                                      // Display "Max Volume"
