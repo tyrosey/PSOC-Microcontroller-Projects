@@ -1,14 +1,20 @@
-/* ========================================
+/* ==========================================================================
  *
- * Copyright YOUR COMPANY, THE YEAR
- * All Rights Reserved
- * UNPUBLISHED, LICENSED SOFTWARE.
+ * Tyler Rose
+ * ECE -- Microcontrollers
  *
- * CONFIDENTIAL AND PROPRIETARY INFORMATION
- * WHICH IS THE PROPERTY OF your company.
+ * Project 1.A Description:
+ * 
+ * Use the process of polling to read a digital input without using the
+ * auto-generated PSOC Creator APIs, in order to better understand how the
+ * microcontroller communicates with the built-in peripherals (such as GPIOs,
+ * I2Cs, USBs, etc.). Use memory-mapped registers (associated with port 2) to
+ * read the pin and output to an LED. The goal is for the LED to toggle on and
+ * off whenever a button is pushed.
  *
- * ========================================
+ * ==========================================================================
 */
+
 #include "project.h"
 #include <string.h>
 #include <stdio.h>
@@ -41,15 +47,14 @@ int main(void)
     *PRT2_DM2 = *PRT2_DM2 | ~LED_MASK;
     
     
-    for(;;)
-    {
-      /* Place your application code here. */
+    for(;;) {
         while ((*PRT2_PS & SW_MASK));
         CyDelay(1);
         if ((*PRT2_PS & SW_MASK) == 0) {
             *PRT2_DR ^= LED_MASK;
-    }   
-        while ((*PRT2_PS & SW_MASK) == 0);
-}}
+        }   
+        while ((*PRT2_PS & SW_MASK) == 0))
+    }
+}
 
 /* [] END OF FILE */
